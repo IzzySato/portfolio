@@ -1,0 +1,262 @@
+:root {
+  --background-one: #E4E8E8;
+  --background-two: #1f7979;
+  --background-two-lighter: #2eb6b6;
+  --font-one: #ffff;
+  --font-two: #161616d3;
+  --point-color: #cc6262d3;
+  --point-color-two: #e6b03ed3;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  color: var(--font-two);
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ a {
+   text-decoration: none;
+ }
+
+ h2 {
+   padding: 0;
+   margin: 0;
+ }
+
+/* navigation */
+nav {
+  background-color: var(--background-two);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav ul {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+nav ul li a {
+  font-size: 1.5rem;
+  color: var(--font-one);
+}
+
+.navLi {
+  padding: 2% 0;
+}
+
+.navLi:hover {
+  background-color: var(--background-two-lighter);
+  cursor: pointer;
+}
+
+.title {
+  margin-bottom: 6%;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* index */
+
+#indexSection {
+  margin-top: 10%;
+}
+
+/* about me */
+
+#topGrid {
+  display: grid;
+  grid-template-areas:
+  "name name"
+  "img  skills";
+  justify-items: center;
+  margin-top: 5%;
+}
+
+#name {
+  font-size: 2.5rem;
+  grid-area: name;
+  margin: 2% 0;
+}
+
+#izzyImg {
+  width: 100px;
+  border-radius: 50%;
+  grid-area: img;
+  justify-self: right;
+}
+
+#skills {
+  grid-area: skills;
+  justify-self: left;
+  padding-left: 5%;
+}
+
+#skillsUl li {
+  margin-top: 7px;
+}
+
+#mapGrid {
+  display: grid;
+  grid-template-columns: 65% auto;
+}
+
+#mapDiv {
+  position: relative;
+  background-image: url("/images/travelboard.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 800px;
+  background-position: center;
+}
+
+#traveler {
+  width: 50px;
+  position: absolute;
+  animation: traveler 9s linear forwards infinite;
+  transform-origin: center 200%;
+  bottom: 230px;
+  left: 350px;
+}
+
+#airplane {
+  width: 120px;
+  /* transform-origin: 250% center;  */
+  position: absolute;
+  offset-path: path("M135.18,180.52c-63.95,22.73-61.86,123.13-51.24,183.11c13.14,74.2,65.34,196.48,194.55,198.89 c125.26,2.34,176.96-152.1,76.93-281.98C292.44,198.77,172.29,167.34,135.18,180.52z");
+  left: 90px;
+  animation: plane 8s linear forwards infinite;
+}
+
+@keyframes plane {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes traveler {
+  to { transform: rotate(1turn); } 
+}
+
+#timeline {
+  display: grid;
+  grid-template-columns: 44% 10% 43%;
+  background-color: var(--background-one);
+  border-radius: 10px;
+  padding: 5% 2% 0 2%;
+}
+
+#containerRight {
+  margin-left: 5%;
+}
+
+.dots {
+  width: 20px;
+  height: 20px;
+  background-color: var(--point-color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.dotsL {
+  top: 19%;
+  left: 110%;
+  background-color: var(--point-color);
+}
+
+.dotsR {
+  top: 22%;
+  left: -20%;
+  background-color: var(--point-color-two);
+}
+
+.arrowL {
+  position: absolute;
+  left: 96%;
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 30px solid rgb(255, 255, 255);
+}
+
+.arrowR {
+  position: absolute;
+  top: 14%;
+  left: -14%;
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent; 
+  border-right: 30px solid rgb(255, 255, 255); 
+}
+
+#line {
+  width: 1px;
+  background-color: black;
+  height: 100%;
+  margin: 0 30px;
+}
+
+#containerRight {
+  padding-top: 45%;
+}
+
+.timeCards {
+  background-color: white;
+  padding: 3%;
+  margin-bottom: 50%;
+  border-radius: 15px;
+  position: relative;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation: fadeIn 10s infinite;
+}
+
+#born {
+  animation-delay: 0.5s;
+}
+
+#degree {
+  animation-delay: 1s;
+}
+
+#travel {
+  animation-delay: 1.5s;
+}
+
+#moved {
+  animation-delay: 2s;
+}
+
+#work {
+  animation-delay: 2.5s;
+}
+
+#fashion {
+  animation-delay: 3s;
+}
+
+#bcit {
+  animation-delay: 3.5s;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
