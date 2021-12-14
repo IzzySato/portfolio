@@ -73,13 +73,17 @@ nav ul li a {
   margin-top: 10%;
 }
 
+.projectLogos {
+  width: 10%;
+}
+
 /* about me */
 
 #topGrid {
   display: grid;
   grid-template-areas:
-  "name name"
-  "img  skills";
+  "name name name"
+  "img  skills contact";
   justify-items: center;
   margin-top: 5%;
 }
@@ -91,16 +95,18 @@ nav ul li a {
 }
 
 #izzyImg {
-  width: 100px;
+  width: 150px;
   border-radius: 50%;
   grid-area: img;
-  justify-self: right;
 }
 
 #skills {
   grid-area: skills;
-  justify-self: left;
   padding-left: 5%;
+}
+
+#contact {
+  grid-area: contact;
 }
 
 #skillsUl li {
@@ -110,6 +116,7 @@ nav ul li a {
 #mapGrid {
   display: grid;
   grid-template-columns: 65% auto;
+  margin-top: 5%;
 }
 
 #mapDiv {
@@ -197,7 +204,7 @@ nav ul li a {
 .arrowR {
   position: absolute;
   top: 14%;
-  left: -14%;
+  left: -12%;
   width: 0; 
   height: 0; 
   border-top: 20px solid transparent;
