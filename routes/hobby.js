@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const navLinks = [{link: '/', name: 'PROJECTS'}, 
-{link: '/hobby', name: 'HOBBIES'}];
+{link: '/aboutMe', name: 'ABOUT ME'}];
 
 router.get('/', (req, res, next) => {
-  res.render('aboutMe', {navLinks});
+  res.render('hobby', {navLinks});
 });
 
 module.exports = router;

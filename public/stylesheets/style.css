@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 :root {
   --background-one: #E4E8E8;
   --background-two: #1f7979;
+  --background-three: #f8f3ee;
   --background-two-lighter: #2eb6b6;
   --font-one: #ffff;
   --font-two: #161616d3;
   --point-color: #cc6262d3;
   --point-color-two: #e6b03ed3;
+  --bubble1: rgb(56, 139, 216);
+  --bubble2: rgb(133, 168, 201);
+  --bubble3: rgb(35, 176, 201);
+  --bubble4: rgb(233, 232, 250);
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0 auto;
   color: var(--font-two);
+  background-color: var(--background-three);
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
 }
 
 ul {
@@ -28,7 +36,7 @@ li {
    text-decoration: none;
  }
 
- h2 {
+ h2, h3 {
    padding: 0;
    margin: 0;
  }
@@ -39,6 +47,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 }
 
 nav ul {
@@ -62,7 +71,6 @@ nav ul li a {
 }
 
 .title {
-  margin-bottom: 6%;
   text-align: center;
   font-size: 2.5rem;
 }
@@ -73,58 +81,130 @@ nav ul li a {
   margin-top: 10%;
 }
 
+.projects {
+  padding: 5%;
+}
+
+.projGrid {
+  display: grid;
+  grid-template-columns: 20% 20% 30% auto;
+  grid-template-areas:
+  "title title title title"
+  "logo tech links demo";
+  padding: 5%;
+  border: 1px solid var(--background-two);
+  border-radius: 15px;
+  color:var(--font-two);
+}
+
+.projTitle {
+  grid-area: title;
+  margin-bottom: 5%;
+  font-size: 2.2rem;
+}
+
+.projSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 7%;
+}
+
+.techUl li {
+  margin-bottom: 10px;
+}
+
 .projectLogos {
-  width: 10%;
+  grid-area: logo;
+  width: 70%;
+}
+
+.demo {
+  grid-area: demo;
+}
+
+.techUsed {
+  grid-area: tech;
+}
+
+.links {
+  grid-area: links;
+}
+
+.srcLinks {
+  color: var(--font-one);
+  display: block;
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+  background-color: var(--background-two);
+  padding: 2% 3%;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
 }
 
 /* about me */
 
 #topGrid {
   display: grid;
+  grid-template-columns: 20% 25% 25% auto;
   grid-template-areas:
-  "name name name"
-  "img  skills contact";
-  justify-items: center;
+  "name name name name"
+  "img  skills contact contact";
   margin-top: 5%;
 }
 
 #name {
   font-size: 2.5rem;
   grid-area: name;
-  margin: 2% 0;
+  margin: 2% 7%;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+}
+
+.aboutSubTitle {
+  color: var(--font-two);
+  border-bottom: 1px solid var(--font-two);
 }
 
 #izzyImg {
   width: 150px;
   border-radius: 50%;
   grid-area: img;
+  margin-left: 33%;
+  margin-top: 10%;
 }
 
 #skills {
   grid-area: skills;
-  padding-left: 5%;
+  background-color: var(--background-two-lighter);
+  border-radius: 10px;
+  margin: 0 10%;
+  padding: 3% 4%;
+  color: var(--font-one);
 }
 
 #contact {
   grid-area: contact;
 }
 
-#skillsUl li {
-  margin-top: 7px;
+#resume {
+  background-color: var(--background-two);
+  border-radius: 10px;
+  padding: 1%;
+  color: var(--font-one);
 }
 
-#mapGrid {
-  display: grid;
-  grid-template-columns: 65% auto;
-  margin-top: 5%;
+#skillsUl li {
+  margin-top: 7px;
 }
 
 #mapDiv {
   position: relative;
   background-image: url("/images/travelboard.svg");
   background-repeat: no-repeat;
-  width: 100%;
-  height: 800px;
+  width: 800px;
+  height: 857px;
   background-position: center;
 }
 
@@ -132,17 +212,17 @@ nav ul li a {
   width: 50px;
   position: absolute;
   animation: traveler 9s linear forwards infinite;
-  transform-origin: center 200%;
-  bottom: 230px;
-  left: 350px;
+  transform-origin: center 230%;
+  bottom: 254px;
+  left: 237px;
 }
 
 #airplane {
   width: 120px;
-  /* transform-origin: 250% center;  */
   position: absolute;
   offset-path: path("M135.18,180.52c-63.95,22.73-61.86,123.13-51.24,183.11c13.14,74.2,65.34,196.48,194.55,198.89 c125.26,2.34,176.96-152.1,76.93-281.98C292.44,198.77,172.29,167.34,135.18,180.52z");
-  left: 90px;
+  left: -9px;
+  top: 1px;
   animation: plane 8s linear forwards infinite;
 }
 
@@ -160,6 +240,10 @@ nav ul li a {
 }
 
 #timeline {
+  position: absolute;
+  right: 2%;
+  top: 20%;
+  width: 35%;
   display: grid;
   grid-template-columns: 44% 10% 43%;
   background-color: var(--background-one);
@@ -172,23 +256,20 @@ nav ul li a {
 }
 
 .dots {
-  width: 20px;
-  height: 20px;
-  background-color: var(--point-color);
-  border-radius: 50%;
   position: absolute;
+  font-size: 1.4rem;
 }
 
 .dotsL {
   top: 19%;
   left: 110%;
-  background-color: var(--point-color);
+  color: var(--point-color);
 }
 
 .dotsR {
   top: 22%;
   left: -20%;
-  background-color: var(--point-color-two);
+  color: var(--point-color-two);
 }
 
 .arrowL {
@@ -204,7 +285,7 @@ nav ul li a {
 .arrowR {
   position: absolute;
   top: 14%;
-  left: -12%;
+  left: -13%;
   width: 0; 
   height: 0; 
   border-top: 20px solid transparent;
@@ -231,7 +312,7 @@ nav ul li a {
   position: relative;
   animation-fill-mode: forwards;
   opacity: 0;
-  animation: fadeIn 10s infinite;
+  animation: fadeIn linear 7s infinite;
 }
 
 #born {
@@ -243,27 +324,350 @@ nav ul li a {
 }
 
 #travel {
-  animation-delay: 1.5s;
-}
-
-#moved {
   animation-delay: 2s;
 }
 
-#work {
-  animation-delay: 2.5s;
-}
-
-#fashion {
+#moved {
   animation-delay: 3s;
 }
 
+#work {
+  animation-delay: 4s;
+}
+
+#fashion {
+  animation-delay: 5s;
+}
+
 #bcit {
-  animation-delay: 3.5s;
+  animation-delay: 6s;
 }
 
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* hobby page */
+
+#hobbySection {
+  text-align: center;
+  position: relative;
+}
+
+@keyframes sideWays { 
+  0% { 
+      margin-left: 300px;
+  }
+  100% { 
+      margin-left: 400px;
+  }
+}
+
+@keyframes animateBubble {
+  0% {
+      margin-top: 0;
+  }
+  100% {
+      margin-top: 900px;
+  }
+}
+
+.mollyImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.bubbles {
+  border-radius: 50%;
+  position: absolute;
+}
+
+.bubbles:first-child {
+  animation: animateBubble 30s linear infinite, sideWays 6s 
+  ease-in-out infinite alternate;
+  width: 30px;
+  height: 30px;
+  left: 20%;
+	top: 2%;
+  background-color: var(--bubble1);
+}
+
+.bubbles:nth-child(2) {
+  animation: animateBubble 25s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  width: 35px;
+  height: 35px;
+  left: 3%;
+  background-color: var(--bubble2);
+}
+
+.bubbles:nth-child(3) {
+  animation: animateBubble 25s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  background-color: var(--bubble3);
+  width: 25px;
+  height: 25px;
+  left: 50%;
+	top: 5%;
+}
+
+.bubbles:nth-child(4) {
+  animation: animateBubble 25s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  background-color: var(--bubble4);
+  width: 32px;
+  height: 32px;
+  left: 65%;
+	top: 2%;
+}
+
+.bubbles:nth-child(5) {
+  animation: animateBubble 25s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  background-color: var(--bubble2);
+  width: 15px;
+  height: 15px;
+  left: 70%;
+	top: 3%;
+}
+
+.bubbles:nth-child(6) {
+  animation: animateBubble 25s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  background-color: var(--bubble4);
+  width: 15px;
+  height: 15px;
+  left: 1%;
+	top: 3%;
+}
+
+#mollyImg1 {
+  animation: animateBubble 25s linear infinite, sideWays 2s 
+  ease-in-out infinite alternate;
+  left: 3%;
+}
+
+#mollyImg2 {
+  animation: animateBubble 15s linear infinite, sideWays 4s 
+  ease-in-out infinite alternate;
+  left: 5%;
+  top: 10%;
+}
+
+#mollyImg3 {
+  animation: animateBubble 10s linear infinite, sideWays 5s 
+  ease-in-out infinite alternate;
+  left: 1%;
+  top: 3%;
+}
+
+#mollyImg4 {
+  animation: animateBubble 30s linear infinite, sideWays 6s 
+  ease-in-out infinite alternate;
+  left: 58%;
+}
+
+#mollyImg5 {
+  animation: animateBubble 30s linear infinite, sideWays 6s 
+  ease-in-out infinite alternate;
+  left: 60%;
+  top: 5%;
+}
+
+.hobbyTitle {
+  font-size: 2.5rem;
+  margin-bottom: 2%;
+}
+
+.hobbyDiv {
+  margin: 8% 0;
+}
+
+#graphicSea {
+  width: 50%;
+  margin-bottom: 5%;
+}
+
+#graphicJapan {
+  width: 80%;
+}
+
+.fashionImg {
+  margin: 2%;
+  border-radius: 10px;
+}
+
+.dresses {
+  border-radius: 10px;
+  width: 200px;
+  margin: 3%;
+}
+
+.gardenImg {
+  width: 300px;
+  height: 300px;
+  margin-right: 2%;
+  border-radius: 50%;
+}
+
+/* max size 1070px */
+@media only screen and (max-width: 1070px) {
+
+  /* About me */
+  #topGrid {
+    grid-template-columns: 20% 60% auto;
+    grid-template-areas:
+    "name name name"
+    "img  skills contact";
+    margin-top: 5%;
+  }
+
+  #timeline {
+    right: 2%;
+    top: 80%;
+    width: 45%;
+    grid-template-columns: 44% 10% 43%;
+    background-color: var(--background-one);
+    border-radius: 10px;
+    padding: 5% 2% 0 2%;
+  }
+}
+
+/* max size 950px */
+@media only screen and (max-width: 950px) {
+
+  /* index projects */
+  .projGrid {
+    grid-template-columns: 50% auto;
+    grid-template-areas:
+    "title title"
+    "logo tech"
+    "demo links";
+  }
+
+  .demo {
+    margin-top: 15%;
+  }
+}
+
+/* max size 800px */
+@media only screen and (max-width: 800px) {
+   /* About me */
+  #mapDiv {
+    width: 600px;
+    height: 700px;
+  }
+}
+
+/* max size 700px */
+@media only screen and (max-width: 700px) {
+
+  /* index projects */
+  .projGrid {
+    grid-template-columns: 50% auto;
+    grid-template-areas:
+    "logo title"
+    "tech links"
+    "demo demo";
+  }
+
+  .projTitle {
+    margin-top: 20%;
+  }
+
+  .projectLogos {
+    width: 40%;
+    padding: 10% 0;
+  }
+
+  .demo {
+    margin-top: 5%;
+  }
+
+    /* About me */
+    #topGrid {
+      margin-top: 10%;
+      grid-template-columns: 30% 40% auto;
+      grid-template-areas:
+      "name name name"
+      "img contact contact"
+      "skills skills skills";
+    }
+
+    .subtitle {
+      font-size: 2rem;
+    }
+
+    #name {
+      margin-bottom: 5%;
+    }
+
+    #izzyImg {
+      width: 60%;
+    }
+
+    #contact {
+      margin-left: 10%;
+    }
+
+    #contact p {
+      font-size: 1.3rem;
+    }
+
+    #skills {
+      margin-top: 5%;
+    }
+  
+    #timeline {
+      top: 156%;
+      width: 80%;
+      grid-template-columns: 44% 10% 43%;
+      background-color: var(--background-one);
+      border-radius: 10px;
+      padding: 5%;
+      margin: 3%;
+    }
+
+}
+
+/* max size 550px */
+@media only screen and (max-width: 550px) {
+
+
+  /* index projects */
+  .projGrid {
+    grid-template-columns: 30% auto;
+    grid-template-areas:
+    "logo title"
+    "tech tech"
+    "links links"
+    "demo demo";
+    justify-content: center;
+  }
+
+  .projTitle {
+    margin-top: 10%;
+  }
+
+  .projectLogos {
+    width: 80%;
+    padding: 10% 0;
+  }
+
+  .projsubDiv {
+    margin: 5% 0;
+  }
+
+  .srcLinks {
+    width: 90%;
+    font-size: 2rem;
+  }
+
+  .techUl li {
+    font-size: 1.2rem;
+  }
 }

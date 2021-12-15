@@ -1,6 +1,7 @@
 <nav>
   <ul>
-    <li class="navLi"><a href="\">PROJECTS</a></li>
-    <li class="navLi"><a href="\aboutMe">ABOUT ME</a></li>
+    <% navLinks.forEach( list => { %>
+      <li class="navLi"><a href="<%- list.link %>"><%- list.name %></a></li>
+    <% }) %>
   </ul>
 </nav>
