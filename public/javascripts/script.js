@@ -1,4 +1,5 @@
-import * as Nav from './nav.js';
+'use strict';
+import * as Snippet from '../snippets/snippets.js';
 
 const navUl = document.querySelector('#navUl');
 const theaterImg = document.querySelector('#theaterImg');
@@ -12,9 +13,17 @@ const processClick = (target) => {
 };
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.snippetCode').forEach(
+    async e => { 
+        await Snippet.formatHTML(e);
+        hljs.highlightBlock(e);
+    });
+    
     document.addEventListener('click', ({
         target
       }) => processClick(target));
-      theaterImg.addEventListener('mouseover', () => fashionNote.classList.add('show'));
-      theaterImg.addEventListener('mouseout', () => fashionNote.classList.remove('show'));
+      if (theaterImg) {
+        theaterImg.addEventListener('mouseover', () => fashionNote.classList.add('show'));
+        theaterImg.addEventListener('mouseout', () => fashionNote.classList.remove('show'));
+      }
 });

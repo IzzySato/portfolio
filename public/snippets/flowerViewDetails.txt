@@ -1,0 +1,31 @@
+@model PlantApp.Models.Flower
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="detailTitle"><span>@Html.DisplayFor(model => model.Name)</span> Details</h1>
+
+<section class="detailSection">
+    <div class="detailDiv flowerDetail">
+        <div class="detailImgDiv">
+            <img class="pIndexImg" alt="grass image" src="/images/@Model.Image"/>
+        </div>
+        <div class="detailAnnualDiv">
+            @if(@Model.IsAnnual)
+            {
+                <text>Annual</text>
+            } else
+            {
+               <text>Perennual</text>
+            }
+        </div>
+        <div class="detailDescDiv">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+</section>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

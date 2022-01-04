@@ -1,0 +1,63 @@
+<%- include('partials/head')%>
+<%- include('partials/nav')%>
+
+<%
+  const dataID = () => ` data-id="${data._id}"`;
+%>
+
+<div class="messageDiv">
+  <!-- message will be here clicked submit -->
+</div>
+
+<!-- newWorkForm wil popup when clicked 'Add new History' button -->
+<div id="newWorkForm" class="workForm">
+  <label for="date">Date</label>
+  <input id="detailDateInput" class="inputs cusInput workInput" type="date" name="date"><br>
+  <label for="work">Service</label>
+  <input id="detailWorkInput" class="inputs cusInput workInput" type="text" name="work"
+    placeholder="e.g. Fixed pump"><br>
+  <button <%- dataID()%> class="submitNewWork  smallBtnOne submitBtn">Submit</button>
+  <!-- data-div is parent ID which will be close -->
+  <button data-div="newWorkForm" class="smallBtnOne cancelEdit">Cancel</button>
+</div>
+
+<div id="customerDetailDiv">
+  <h2 class="subTitle">Customer Details</h2>
+  <div id="cusDetailIcons">
+    <i class="fas fa-edit editCustomer detailIcon pointer" <%- dataID()%>>EDIT</i>
+    <i class="fas fa-trash-alt removeCustomer detailIcon pointer" <%- dataID()%>>DELETE</i>
+  </div>
+  <div id="detailDiv" <%- dataID()%>>
+    <div>
+      <h3 class="cusDetailHeader">CustomerID:</h3>
+      <p <%- dataID()%> id="customerID" class="cusDetailData"><%- data._id%></p>
+      <h3 class="cusDetailHeader">Hottub Model:</h3>
+      <p id="hottubBrandModel" class="cusDetailData"><%- data.hottubModel.brand %> / <%- data.hottubModel.model%></p>
+      <div id="nameGrid">
+        <div>
+          <h3 class="cusDetailHeader">First Name:</h3>
+          <p class="cusDetailData"><%- data.customerFirstName%></p>
+        </div>
+        <div>
+          <h3 class="cusDetailHeader">Last Name:</h3>
+          <p class="cusDetailData"><%- data.customerLastName%></p>
+        </div>
+      </div>
+      <h3 class="cusDetailHeader">Phone Number:</h3>
+      <p class="cusDetailData"><%- data.phone%></p>
+      <h3 class="cusDetailHeader">email:</h3>
+      <p class="cusDetailData"><%- data.email%></p>
+      <h3 class="cusDetailHeader">Address:</h3>
+      <p class="cusDetailData"><%- data.street %> <%- data.city %> <%-data.postcode %> <%-data.country%></p>
+      <h3 class="cusDetailHeader">Comments:</h3>
+      <p class="cusDetailData"><%- data.comments%></p>
+    </div>
+    <div id="workDiv">
+      <button id="addNewWorkBtn" class="addHistoryBtn smallBtnOne">Add New History</button>
+      <div id="workDataDiv">
+        <!-- data will come from database -->
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

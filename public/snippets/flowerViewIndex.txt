@@ -1,0 +1,46 @@
+@model IEnumerable<PlantApp.Models.Flower>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="titleDiv">
+    <h1 class="pageTitle">Flower</h1>
+    <a class="newA" asp-action="Create">Create New</a>
+</div>
+
+<form class="searchForm"  asp-action="ShowSearchResult">
+    <div class="searchInputs">
+        <label for="SearchPhrase" class="control-label"></label>
+        <input name="SearchPhrase" class="form-control"/>
+    </div>
+    <button class="searchBtn" type="submit"><i class="fas fa-search"></i></button>
+</form>
+
+@foreach (var item in Model) {
+    <div class="flowerGridDiv pIndexDiv">
+        <div class="fImgDiv">
+            <img class="fImg pIndexImg" alt="@item.Image" src="~/images/@item.Image"    
+                        asp-append-version="true" />
+        </div>
+        <div class="fName pName">
+            @Html.DisplayFor(modelItem => item.Name)
+        </div>
+        <div class="fAnnual">
+            @if(item.IsAnnual) {
+                <text>Annual</text>
+            } else
+            {
+               <text>Perennual</text>
+            }
+        </div>
+        <div class="fDesc pDesc">
+            @Html.DisplayFor(modelItem => item.Description)
+        </div>
+
+        <div class="fEdit pEdit">
+            <a class="editDetailDelete" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            <a class="editDetailDelete" asp-action="Details" asp-route-id="@item.Id">Details</a>
+            <a class="editDetailDelete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </div>
+    </div>
+ }

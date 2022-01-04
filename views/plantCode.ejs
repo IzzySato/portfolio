@@ -1,0 +1,109 @@
+<%- include('parts/header')%>
+<%- include('parts/nav')%>
+
+<section id="plantCodeSection" class="codeSection">
+    <h2 class="codeMainTitle">ASP.NET Plant App Sample Code</h2>
+    <div class="umlDiv">
+        <h3 class="codeTitle">UML Diagram</h3>
+        <img class="uml" src="/images/plantUML.svg" alt="uml diagram">
+    </div>
+    <div class="codeDiv">
+        <h3 class="codeTitle">Models</h3>
+        <hr />
+        <div class="code">
+            <h3 class="codeSubTitle">MergeModel.cs</h3>
+            <p class="codeP">For Home page, display all flowers, grasses, and trees</p>
+            <pre>
+                <code class="snippetCode language-csharp" data-snippet="mergeModel.txt">
+                    <!-- /snippets/mergeModel.txt -->
+                </code>
+            </pre>
+        </div>
+        <div class="code">
+            <h3 class="codeSubTitle">Plant.cs</h3>
+            <p class="codeP">Super class</p>
+            <pre>
+                <code class="snippetCode language-csharp" data-snippet="plantModel.txt">
+                    <!-- /snippets/plantModel.txt -->
+                </code>
+            </pre>
+        </div>
+    </div>
+        <div class="code">
+            <h3 class="codeSubTitle">Flower.cs</h3>
+            <p class="codeP">Derived class Flower, Grass, and Tree.cs are very similar</p>
+            <pre>
+                <code class="snippetCode language-csharp" data-snippet="flowerModel.txt">
+                    <!-- /snippets/flowerModel.txt -->
+                </code>
+            </pre>
+        </div>
+    </div>
+    <div class="codeDiv">
+        <h3 class="codeTitle">Views</h3>
+        <hr />
+        <div class="code">
+            <h3 class="codeSubTitle">Flowers Create.cshtml</h3>
+            <p class="codeP">Flowers, Grasses, and Trees are very simillar</p>
+            <pre>
+                <code class="snippetCode html" data-snippet="flowerViewCreate.txt">
+                    <!-- /snippets/flowerViewCreate.txt -->
+                </code>
+            </pre>
+            <h3 class="codeSubTitle">Flowers Delete.cshtml</h3>
+            <p class="codeP">Flowers, Grasses, and Trees are very simillar</p>
+            <pre>
+                <code class="snippetCode html" data-snippet="flowerViewDelete.txt">
+                    <!-- /snippets/flowerViewDelete.txt -->
+                </code>
+            </pre>
+
+            <h3 class="codeSubTitle">Flowers Detail.cshtml</h3>
+            <p class="codeP">Flowers, Grasses, and Trees are very simillar</p>
+            <pre>
+                <code class="snippetCode html" data-snippet="flowerViewDetails.txt">
+                    <!-- /snippets/flowerViewDetails.txt -->
+                </code>
+            </pre>
+            <h3 class="codeSubTitle">Flowers Edit.cshtml</h3>
+            <p class="codeP">Flowers, Grasses, and Trees are very simillar</p>
+            <pre>
+                <code class="snippetCode html" data-snippet="flowerViewEdit.txt">
+                    <!-- /snippets/flowerViewEdit.txt -->
+                </code>
+            </pre>
+            <h3 class="codeSubTitle">Flowers Index.cshtml</h3>
+            <p class="codeP">Flowers, Grasses, and Trees are very simillar</p>
+            <pre>
+                <code class="snippetCode html" data-snippet="flowerViewIndex.txt">
+                    <!-- /snippets/flowerViewIndex.txt -->
+                </code>
+            </pre>
+        </div>
+
+    </div>
+    <div class="codeDiv">
+        <h3 class="codeTitle">Controllers</h3>
+        <hr />
+        <div class="code">
+            <div class="controllerDiv">
+                <h3 class="codeSubTitle">CommonController.cs</h3>
+                <p class="codeP">FlowersController, GrassesController and TreesController common methods</p>
+                <pre>
+                    <code class="snippetCode language-csharp" data-snippet="commonController.txt">
+                        <!-- /snippets/commonController.txt -->
+                    </code>
+                </pre>
+                <h3 class="codeSubTitle">FlowersController.cs</h3>
+                <p class="codeP">FlowersController, GrassesController and TreesController are very simillar</p>
+                <pre>
+                    <code class="snippetCode language-csharp" data-snippet="flowerController.txt">
+                        <!-- /snippets/flowerController.txt -->
+                    </code>
+                </pre>
+            </div>
+        </div>
+</section>
+
+<%- include('parts/footer')%>
+

@@ -1,0 +1,58 @@
+<%- include('partials/head')%>
+<%- include('partials/nav')%>
+
+<div id="cusListMessageDiv" class="messageDiv">
+  <!-- message will be here clicked submit -->
+</div>
+
+<div id="searchDiv">
+  <label for="seach"></label>
+  <div id="searchInputArea">
+    <i id="searchCustomerIcon" class="fas fa-search pointer"></i>
+    <input id="searchInput" class="inputs" type="search" name="search"
+      placeholder="Search...   first name, last name, or phone number">
+  </div>
+
+  <div id="customerListFoundDiv" class="foundSection">
+    <div class="foundDiv">
+      <!-- found customers data here-->
+    </div>
+    <div class="noFoundDiv">
+      <h4 id="cusNoFoundH4">Sorry, no customers found</h4>
+    </div>
+    <!-- data-div is parent ID which will be close -->
+    <button data-div="customerListFoundDiv" class="cancelEdit btn">close</button>
+  </div>
+</div>
+<h2 class="subTitle">All Customers</h2>
+<div id="customerList">
+  <ul id="tableHeader">
+    <li class="col">customerID</li>
+    <li class="col">Name</li>
+    <li class="col">email</li>
+    <li class="col">Phone number</li>
+    <li class="col">Address</li>
+    <li>
+      <!-- icons column -->
+    </li>
+  </ul>
+
+  <!-- The below form disply when users clicked the Add Work History button (data insert from client side)-->
+  <div id="mainAddWorkDiv" class="workForm">
+    <div id="cusNameWorkDiv" class="sectionTitle">
+      <!-- customerName insert from client side -->
+    </div>
+    <label for="date">Date</label>
+    <input id="cusDateInput" class="inputs cusInput workInput" type="date" name="date"><br>
+    <label for="work">Service</label>
+    <input id="cusWorkInput" class="inputs cusInput workInput" type="text" name="work" placeholder="e.g. Fixed pump"><br>
+    <button id="cusSubmitWork" class="submitNewWork smallBtnOne submitBtn">Submit</button>
+    <!-- data-div is parent ID which will be close -->
+    <button data-div="mainAddWorkDiv" id="cusWorkCancel" class="cancel smallBtnOne cancelEdit">Cancel</button>
+  </div>
+
+  <div id="dataDiv">
+    <!-- customer data come from database -->
+  </div>
+</div>
+<%- include('partials/footer') %>

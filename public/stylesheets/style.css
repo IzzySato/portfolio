@@ -15,6 +15,8 @@
   --index-btn-color: #33a80fd3;
   --point-color: #cc6262d3;
   --point-color-two: #e6b03ed3;
+  --color-one: #1f7979;
+  --color-two: #2eb6b6;
   --bubble1: rgb(56, 139, 216);
   --bubble2: rgb(133, 168, 201);
   --bubble3: rgb(35, 176, 201);
@@ -225,10 +227,10 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
 #topGrid {
   display: grid;
-  grid-template-columns: 20% 15% 25% auto;
+  grid-template-columns: 20% auto;
   grid-template-areas:
-  "name name name name"
-  "img contact skills skills";
+  "name name"
+  "img skills";
 }
 
 #name {
@@ -260,17 +262,6 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   border-radius: 10px;
   padding: 3% 4%;
   width: 20%;
-  color: var(--font-one);
-}
-
-#contact {
-  grid-area: contact;
-}
-
-#resume {
-  background-color: var(--background-two);
-  border-radius: 10px;
-  padding: 1%;
   color: var(--font-one);
 }
 
@@ -369,7 +360,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   height: 0; 
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent; 
-  border-right: 30px solid rgb(255, 255, 255); 
+  border-right: 40px solid rgb(255, 255, 255); 
 }
 
 #line {
@@ -464,7 +455,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 30px;
   height: 30px;
   left: 2%;
-	top: 2%;
+	top: 60%;
   background-color: var(--bubble1);
 }
 
@@ -473,6 +464,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   ease-in-out infinite alternate;
   width: 35px;
   height: 35px;
+  top: 61%;
   left: 3%;
   background-color: var(--bubble2);
 }
@@ -484,7 +476,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 25px;
   height: 25px;
   left: 11%;
-	top: 5%;
+	top: 65%;
 }
 
 .bubbles:nth-child(4) {
@@ -494,7 +486,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 32px;
   height: 32px;
   left: 2%;
-	top: 12%;
+	top: 52%;
 }
 
 .bubbles:nth-child(5) {
@@ -504,7 +496,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 15px;
   height: 15px;
   left: 15%;
-	top: 3%;
+	top: 63%;
 }
 
 .bubbles:nth-child(6) {
@@ -514,7 +506,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 15px;
   height: 15px;
   left: 1%;
-	top: 9%;
+	top: 53%;
 }
 
 .bubbles:nth-child(7) {
@@ -524,7 +516,7 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   width: 30px;
   height: 30px;
   left: 20%;
-	top: 10%;
+	top: 50%;
 }
 
 .hobbyTitle {
@@ -582,6 +574,44 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   border-radius: 50%;
 }
 
+/* common codes */
+
+.codeSection {
+  margin-top: 10%;
+}
+
+.codeMainTitle {
+  margin: 0  0 2% 3%;
+}
+
+.codeTitle {
+  font-size: 1.8rem;
+  margin: 5% 0 2% 5%;
+}
+
+.uml {
+  width: 100%;
+}
+
+.codeSubTitle {
+  font-size: 1.2rem;
+  color: var(--color-one);
+}
+
+.codeP {
+  font-size: 1rem;
+  color: var(--color-one);
+}
+
+.code {
+  margin: 0 5%;
+}
+
+/* plant codes */
+
+
+
+
 /* max size 1070px */
 @media only screen and (max-width: 1070px) {
 
@@ -593,10 +623,10 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
   /* About me */
   #topGrid {
-    grid-template-columns: 30% 20% auto;
+    grid-template-columns: 30% auto;
     grid-template-areas:
-    "name name name"
-    "img contact skills";
+    "name name"
+    "img skills";
   }
 
   #izzyImg {
@@ -675,11 +705,12 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
   #topGrid {
     margin-top: 10%;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto;
+    justify-items: center;
     grid-template-areas:
-    "name name"
-    "img contact"
-    "skills skills";
+    "name"
+    "img"
+    "skills";
   }
 
   .subtitle {
@@ -691,15 +722,8 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   }
 
   #izzyImg {
-    width: 60%;
-  }
-
-  #contact {
-    margin-left: 10%;
-  }
-
-  #contact p {
-    font-size: 1.3rem;
+    width: 30%;
+    margin: 0;
   }
 
   #skills {
@@ -800,6 +824,12 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
   .demo {
     margin-top: 5%;
+  }
+
+  /* Codes */
+
+  .codeSection {
+    margin-top: 30%;
   }
 
 }

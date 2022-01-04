@@ -1,0 +1,51 @@
+@model PlantApp.ViewModels.PlantViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="createDiv">  
+    <div class="card">  
+        <div class="createHead">  
+            <h4>Add New Flower</h4>  
+        </div>  
+        <div class="createBody">  
+            <form class="createForm" enctype="multipart/form-data" asp-action="Create">  
+                <div class="createP">  
+                    <label asp-for="Name" class="control-label"></label>  
+                    <input asp-for="Name" class="form-control smallInput" />  
+                    <span asp-validation-for="Name" class="text-danger"></span>  
+                </div>
+                <div class="createP isAnnualDiv"> <span>Is Annual?</span>
+                    <input  asp-for="IsAnnual"
+                            name="IsAnnual" 
+                            type="checkbox"
+                            value="true"/>
+
+                    <input asp-for="IsAnnual"  name="IsAnnual" type="hidden" value="false"/>
+                </div>
+                <div class="createP">  
+                    <label asp-for="Description" class="control-label"></label>  
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>  
+                </div>
+                <div class="createP">  
+                    <label asp-for="PlantImage" class="control-label"></label>  
+                    <div class="custom-file">  
+                        <input asp-for="PlantImage" class="custom-file-input" id="customFile">  
+                        <label class="custom-file-label" for="customFile">Choose file</label>  
+                    </div>  
+                    <span asp-validation-for="PlantImage" class="text-danger"></span>  
+                </div> 
+                <div class="createP">  
+                    <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />  
+                    <a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>  
+                </div>  
+            </form>  
+        </div>  
+    </div>  
+</div>  
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
