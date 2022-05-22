@@ -4,10 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/project');
 const aboutMeRouter = require('./routes/aboutMe');
-const hobbyRouter = require('./routes/hobby');
 const plantRouter = require('./routes/plantCode');
 const dunriteRouter = require('./routes/dunriteCode');
 
@@ -23,10 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/project', projectRouter);
+app.use('/', projectRouter);
 app.use('/aboutMe', aboutMeRouter);
-app.use('/hobby', hobbyRouter);
 app.use('/plantCode', plantRouter);
 app.use('/dunriteCode', dunriteRouter);
 

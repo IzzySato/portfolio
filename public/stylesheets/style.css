@@ -17,10 +17,6 @@
   --point-color-two: #e6b03ed3;
   --color-one: #1f7979;
   --color-two: #2eb6b6;
-  --bubble1: rgb(56, 139, 216);
-  --bubble2: rgb(133, 168, 201);
-  --bubble3: rgb(35, 176, 201);
-  --bubble4: rgb(233, 232, 250);
 }
 
 body {
@@ -44,7 +40,7 @@ li {
    text-decoration: none;
  }
 
- h2, h3 {
+ h2, h3, h4 {
    padding: 0;
    margin: 0;
  }
@@ -66,7 +62,7 @@ nav {
 nav ul {
   text-align: center;
   display: grid;
-  grid-template-columns: 35% 30% 35%;
+  grid-template-columns: 50% 50%;
   justify-content: center;
 }
 
@@ -95,71 +91,8 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 }
 
 .mainSections {
-  margin-top: 10%;
+  margin-top: 5%;
 }
-
-/* index */
-
-#indexSection {
-  background-color: var(--background-four);
-  color: var(--index-point-color);
-  text-align: center;
-  padding: 10% 0;
-  font-family: 'Press Start 2P', cursive;
-  height: 800px;
-  text-transform: uppercase;
-}
-
-#indexFont {
-  margin: 12% auto;
-  font-size: 2.3rem;
-  width: 27ch;
-  animation: typing 4s steps(27), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-size: 2em;
-  
-}
-
-@keyframes typing {
-  from {
-    width: 0
-  }
-}
-    
-
-
-
-#indexBtnDiv {
-  text-align: center;
-  margin: 15% auto;
-  background-color: var(--index-btn-color);
-  border-radius: 10px;
-  padding: 2% 3%;
-  width: 213px;
-  height: 26px;
-}
-
-#enter {
-  color:var(--font-one);
-  font-size: 1.3rem;
-  animation: blinkBtn 1.3s linear infinite;
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent
-  }
-}
-
-/* button effect */
-@keyframes blinkBtn{
-  0%{opacity: 0;}
-  50%{opacity: .5;}
-  100%{opacity: 1;}
-  }
-
 
 /* project */
 
@@ -169,10 +102,12 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
 .projGrid {
   display: grid;
-  grid-template-columns: 20% 20% 30% auto;
+  grid-template-columns: 40% 40% auto;
   grid-template-areas:
-  "title title title title"
-  "logo tech links demo";
+  "title title logo"
+  "buisName buisName logo"
+  "discription discription logo"
+  "tech links demo";
   padding: 5%;
   border: 1px solid var(--background-two);
   border-radius: 15px;
@@ -181,13 +116,26 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
 .projTitle {
   grid-area: title;
-  margin-bottom: 5%;
   font-size: 2.2rem;
+}
+
+.businessName {
+  grid-area: buisName;
+  margin-top: 2%;
+}
+
+.discription {
+  grid-area: discription;
+  margin-bottom: 5%;
 }
 
 .projSubtitle {
   font-size: 1.5rem;
   margin-bottom: 7%;
+}
+
+.techUl {
+  margin-top: 15%;
 }
 
 .techUl li {
@@ -225,18 +173,42 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 
 /* about me */
 
+#aboutMeSection {
+  padding: 5% 10%;
+}
+
 #topGrid {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 30% 30% auto;
+  gap: 5%;
   grid-template-areas:
-  "name name"
-  "img skills";
+  "name name name"
+  "img links skills";
 }
 
 #name {
   font-size: 2.5rem;
   grid-area: name;
-  margin: 0 0 7% 5%;
+}
+
+#links {
+  grid-area: links;
+}
+
+.linksLi {
+  background-color: var(--color-two);
+  border-radius: 10px;
+  padding: 5%;
+  margin-bottom: 5%;
+}
+
+.linksLi:hover {
+  background-color: var(--color-one);
+  cursor: pointer;
+}
+
+.linksLi a {
+  color: var(--font-one);
 }
 
 .subtitle {
@@ -246,6 +218,14 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
 .aboutSubTitle {
   color: var(--font-two);
   border-bottom: 1px solid var(--font-two);
+  padding-bottom: 2%;
+  margin: 4% 0;
+}
+
+.aboutUl li {
+  font-size: 1.4rem;
+  margin-bottom: 1%;
+  line-height: 50px;
 }
 
 #izzyImg {
@@ -261,7 +241,6 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   background-color: var(--background-two-lighter);
   border-radius: 10px;
   padding: 3% 4%;
-  width: 20%;
   color: var(--font-one);
 }
 
@@ -269,309 +248,23 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   margin-top: 7px;
 }
 
-#mapDiv {
-  position: relative;
-  background-image: url("/images/travelboard.svg");
-  background-repeat: no-repeat;
-  width: 800px;
-  height: 857px;
-  background-position: center;
-}
-
-#traveler {
-  width: 50px;
-  position: absolute;
-  animation: traveler 9s linear forwards infinite;
-  transform-origin: center 230%;
-  bottom: 254px;
-  left: 237px;
-}
-
-#airplane {
-  width: 120px;
-  position: absolute;
-  offset-path: path("M135.18,180.52c-63.95,22.73-61.86,123.13-51.24,183.11c13.14,74.2,65.34,196.48,194.55,198.89 c125.26,2.34,176.96-152.1,76.93-281.98C292.44,198.77,172.29,167.34,135.18,180.52z");
-  left: -9px;
-  top: 1px;
-  animation: plane 8s linear forwards infinite;
-}
-
-@keyframes plane {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-@keyframes traveler {
-  to { transform: rotate(1turn); } 
-}
-
-#timeline {
-  position: absolute;
-  right: 2%;
-  top: 20%;
-  width: 35%;
+.aboutImgGrid {
   display: grid;
-  grid-template-columns: 44% 10% 43%;
-  background-color: var(--background-one);
-  border-radius: 10px;
-  padding: 5% 2% 0 2%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 5% 0;
 }
 
-#containerRight {
-  margin-left: 5%;
-}
-
-.dots {
-  position: absolute;
-  font-size: 1.4rem;
-}
-
-.dotsL {
-  top: 19%;
-  left: 107%;
-  color: var(--point-color);
-}
-
-.dotsR {
-  top: 22%;
-  left: -23%;
-  color: var(--point-color-two);
-}
-
-.arrowL {
-  position: absolute;
-  left: 96%;
-  width: 0; 
-  height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 30px solid rgb(255, 255, 255);
-}
-
-.arrowR {
-  position: absolute;
-  top: 14%;
-  left: -13%;
-  width: 0; 
-  height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent; 
-  border-right: 40px solid rgb(255, 255, 255); 
-}
-
-#line {
-  width: 1px;
-  background-color: black;
-  height: 100%;
-  margin: 0 auto;
-}
-
-#containerRight {
-  padding-top: 45%;
-}
-
-.timeCards {
-  background-color: white;
-  padding: 7% 16%;
-  margin-bottom: 50%;
-  border-radius: 15px;
-  position: relative;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  animation: fadeIn linear 7s infinite;
-}
-
-#born {
-  animation-delay: 0.5s;
-}
-
-#degree {
-  animation-delay: 1s;
-}
-
-#travel {
-  animation-delay: 2s;
-}
-
-#moved {
-  animation-delay: 3s;
-}
-
-#work {
-  animation-delay: 4s;
-}
-
-#fashion {
-  animation-delay: 5s;
-}
-
-#bcit {
-  animation-delay: 6s;
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* hobby page */
-
-#hobbySection {
-  text-align: center;
-  position: relative;
-}
-
-@keyframes sideWays { 
-  0% { 
-      margin-left: 300px;
-  }
-  100% { 
-      margin-left: 400px;
-  }
-}
-
-@keyframes animateBubble {
-  0% {
-      margin-top: 700px;
-  }
-  100% {
-      margin-top: 0px;
-  }
-}
-
-.bubbles {
-  border-radius: 50%;
-  position: absolute;
-}
-
-.bubbles:first-child {
-  animation: animateBubble 30s linear infinite, sideWays 6s 
-  ease-in-out infinite alternate;
-  width: 30px;
-  height: 30px;
-  left: 2%;
-	top: 60%;
-  background-color: var(--bubble1);
-}
-
-.bubbles:nth-child(2) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  width: 35px;
-  height: 35px;
-  top: 61%;
-  left: 3%;
-  background-color: var(--bubble2);
-}
-
-.bubbles:nth-child(3) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  background-color: var(--bubble3);
-  width: 25px;
-  height: 25px;
-  left: 11%;
-	top: 65%;
-}
-
-.bubbles:nth-child(4) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  background-color: var(--bubble4);
-  width: 32px;
-  height: 32px;
-  left: 2%;
-	top: 52%;
-}
-
-.bubbles:nth-child(5) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  background-color: var(--bubble2);
-  width: 15px;
-  height: 15px;
-  left: 15%;
-	top: 63%;
-}
-
-.bubbles:nth-child(6) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  background-color: var(--bubble4);
-  width: 15px;
-  height: 15px;
-  left: 1%;
-	top: 53%;
-}
-
-.bubbles:nth-child(7) {
-  animation: animateBubble 25s linear infinite, sideWays 4s 
-  ease-in-out infinite alternate;
-  background-color: var(--bubble4);
-  width: 30px;
-  height: 30px;
-  left: 20%;
-	top: 50%;
-}
-
-.hobbyTitle {
-  font-size: 2.5rem;
-  margin-bottom: 2%;
-}
-
-.hobbyDiv {
-  margin: 8% 0;
-}
-
-#graphicSea {
-  width: 50%;
-  margin-bottom: 5%;
-}
-
-#graphicJapan {
-  width: 80%;
-}
-
-.fashionImg {
-  margin: 2%;
-  border-radius: 10px;
-}
-
-#fashionRow1 {
-  position: relative;
-}
-
-#fashionNote {
-  display: none;
-  position: absolute;
-  top: 79%;
-  right: 12%;
-  background-color: var(--background-one);
-  padding: 1% 2%;
-  border-radius: 5px;
-  font-size: 0.7rem;
-}
-
-#fashionNote.show {
-  display: block;
-}
-
-.dresses {
-  border-radius: 10px;
-  width: 200px;
-  margin: 3%;
+.hobbyH3 {
+  font-size: 1.5rem;
 }
 
 .gardenImg {
   width: 300px;
   height: 300px;
-  margin-right: 2%;
-  border-radius: 50%;
+}
+
+.infoG {
+  width: 100%;
 }
 
 /* common codes */
@@ -607,11 +300,6 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   margin: 0 5%;
 }
 
-/* plant codes */
-
-
-
-
 /* max size 1070px */
 @media only screen and (max-width: 1070px) {
 
@@ -621,35 +309,6 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
     font-size: 1.5rem;
   }
 
-  /* About me */
-  #topGrid {
-    grid-template-columns: 30% auto;
-    grid-template-areas:
-    "name name"
-    "img skills";
-  }
-
-  #izzyImg {
-    margin-top: 0;
-  }
-
-  #skills {
-    width: 80%;
-  }
-
-  #timeline {
-    right: 2%;
-    top: 99%;
-    width: 45%;
-    grid-template-columns: 44% 10% 43%;
-    background-color: var(--background-one);
-    border-radius: 10px;
-    padding: 5% 2% 0 2%;
-  }
-
-  .arrowL {
-    top: 11%;
-  }
 }
 
 /* max size 950px */
@@ -659,91 +318,66 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   .projGrid {
     grid-template-columns: 50% auto;
     grid-template-areas:
-    "title title"
-    "logo tech"
-    "demo links";
+    "logo title"
+    "logo buisName"
+    "logo discription"
+    "tech tach"
+    "links links"
+    "demo demo";
+  }
+
+  .projSubtitle {
+    margin-bottom: 3%;
+  }
+
+  .techUsed {
+    margin-top: 10%;
+  }
+
+  .techUl {
+    margin-top: 1%;
   }
 
   .demo {
     margin-top: 15%;
   }
 
-  /* hobby */
-  #graphicSea {
-    width: 90%;
+  .links {
+    margin-top: 3%;
   }
 
-  #fashionNote {
-    top: 88%;
-    right: 37%;
-  }
-}
-
-/* max size 800px */
-@media only screen and (max-width: 800px) {
-
-   /* About me */
-  #mapDiv {
-    margin: 0 auto;
-    width: 600px;
-    height: 700px;
+  .srcLinks {
+    width: 100%;
+    padding: 2% 0;
   }
 
-  #airplane {
-    width: 80px;
-    left: 0px;
-    top: 43px;
-    offset-path: path("M82.84,132.71c-50.39,17.91-48.74,97.02-40.37,144.28c10.35,58.46,51.49,154.8,153.29,156.71 c98.69,1.84,139.42-119.84,60.61-222.17C206.74,147.08,112.08,122.32,82.84,132.71z");
-  }
-
-  #traveler {
-    width: 40px;
-    transform-origin: center 200%;
-    bottom: 228px;
-    left: 160px;
-  }
-
+  /* About me */
   #topGrid {
-    margin-top: 10%;
-    grid-template-columns: auto;
-    justify-items: center;
+    grid-template-columns: 100%;
+    gap: 0;
     grid-template-areas:
     "name"
     "img"
+    "links"
     "skills";
   }
 
-  .subtitle {
-    font-size: 2rem;
-  }
-
   #name {
-    margin: 7% auto;
+    margin-bottom: 5%;
   }
 
   #izzyImg {
-    width: 30%;
-    margin: 0;
+    margin: 2% auto;
   }
 
-  #skills {
-    margin: 10% auto;
+  .linksLi {
+    padding: 2% 0;
+    text-align: center;
   }
-
-  #timeline {
-    top: 172%;
-    width: 80%;
-    grid-template-columns: 44% 10% 43%;
-    background-color: var(--background-one);
-    border-radius: 10px;
-    padding: 5%;
-    margin: 3%;
+  .aboutImgGrid {
+    display: block;
+    text-align: center;
   }
-
-  .arrowR {
-    border-right: 40px solid rgb(255, 255, 255);
-  }
-
 }
 
 /* max size 700px */
@@ -752,6 +386,27 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
   /* index */
   #indexFont {
     font-size: 1rem;
+  }
+
+  .projGrid {
+    grid-template-columns: 100%;
+    grid-template-areas:
+    "title"
+    "logo"
+    "buisName"
+    "discription"
+    "tech"
+    "links"
+    "demo";
+  }
+
+  .projTitle {
+    margin-top: 2%;
+  }
+
+  .projectLogos {
+    width: 60%;
+    margin: 6% auto;
   }
 
   .mainSections {
@@ -804,26 +459,11 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
     padding-left: 5%;
   }
 
-  /* projects */
-  .projGrid {
-    grid-template-columns: 50% auto;
-    grid-template-areas:
-    "logo title"
-    "tech links"
-    "demo demo";
-  }
+  /* about me */
 
-  .projTitle {
-    margin-top: 20%;
-  }
-
-  .projectLogos {
-    width: 40%;
-    padding: 10% 0;
-  }
-
-  .demo {
-    margin-top: 5%;
+  .aboutUl li  {
+    font-size: 1.7rem;
+    margin-bottom: 4%;
   }
 
   /* Codes */
@@ -832,76 +472,4 @@ li.nHobby.hobby, li.nAbout.aboutMe, li.nProj.project {
     margin-top: 30%;
   }
 
-}
-
-@media only screen and (max-width: 600px) {
-
-  /* About me */
-  #mapDiv {
-    width: 500px;
-  }
-
-  #airplane {
-    width: 35px;
-    top: 94px;
-    offset-path: path("M75.67,116.23c-40.38,14.35-39.06,77.75-32.35,115.63c8.3,46.85,41.26,124.07,122.85,125.59 c79.1,1.48,111.74-96.05,48.58-178.06C174.97,127.75,99.11,107.9,75.67,116.23z");
-  }
-
-  #traveler {
-    width: 30px;
-  }
-
-}
-
-/* max size 550px */
-@media only screen and (max-width: 550px) {
-
-    /* About me */
-    #mapDiv {
-      width: 400px;
-    }
-  
-    #airplane {
-      top: 143px;
-      offset-path: path("M60.73,92.38c-32.41,11.52-31.35,62.4-25.96,92.79c6.66,37.6,33.11,99.57,98.59,100.79 c63.48,1.19,89.67-77.08,38.98-142.9C140.42,101.63,79.53,85.7,60.73,92.38z");
-    }
-  
-    #traveler {
-      transform-origin: center 164%;
-      bottom: 266px;
-      left: 102px;
-    }
-
-  /* index projects */
-  .projGrid {
-    grid-template-columns: 30% auto;
-    grid-template-areas:
-    "logo title"
-    "tech tech"
-    "links links"
-    "demo demo";
-    justify-content: center;
-  }
-
-  .projTitle {
-    margin-top: 10%;
-  }
-
-  .projectLogos {
-    width: 80%;
-    padding: 10% 0;
-  }
-
-  .projsubDiv {
-    margin: 5% 0;
-  }
-
-  .srcLinks {
-    width: 90%;
-    font-size: 2rem;
-  }
-
-  .techUl li {
-    font-size: 1.2rem;
-  }
 }
